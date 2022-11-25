@@ -103,6 +103,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
         option3 = new javax.swing.JRadioButton();
         option4 = new javax.swing.JRadioButton();
         answerMessage = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -141,6 +142,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
         );
 
         questionNoLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        questionNoLabel.setForeground(new java.awt.Color(0, 204, 204));
         questionNoLabel.setText("1");
 
         buttonGroup1.add(option1);
@@ -183,8 +185,16 @@ public class Question extends javax.swing.JPanel implements ActionListener{
             }
         });
 
-        answerMessage.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         answerMessage.setText("1");
+
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel3.setText("X");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -208,21 +218,27 @@ public class Question extends javax.swing.JPanel implements ActionListener{
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGap(14, 14, 14)
                                 .addComponent(answerMessage)
-                                .addContainerGap(434, Short.MAX_VALUE))
+                                .addContainerGap(435, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(questionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addContainerGap())))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(177, 177, 177)
                         .addComponent(questionNoLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(8, 8, 8)
                 .addComponent(answerMessage)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(questionNoLabel)
                 .addGap(15, 15, 15)
                 .addComponent(questionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -262,6 +278,10 @@ public class Question extends javax.swing.JPanel implements ActionListener{
     private void option4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_option4ActionPerformed
         checkAnswer();       
     }//GEN-LAST:event_option4ActionPerformed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel3MouseClicked
     
     //verify answer
     private void checkAnswer(){
@@ -337,6 +357,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JButton nextButton;
     private javax.swing.JRadioButton option1;

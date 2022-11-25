@@ -17,6 +17,7 @@ public class Quiz extends javax.swing.JFrame {
      */
     public Quiz() {
         initComponents();
+       
         
     }
 
@@ -38,6 +39,7 @@ public class Quiz extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -140,6 +142,7 @@ public class Quiz extends javax.swing.JFrame {
         // TODO add your handling code here:
         CurrentQuiz quiz = new CurrentQuiz();   
         quiz.show();
+        
         dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
 
@@ -174,6 +177,7 @@ public class Quiz extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Quiz().setVisible(true);
+                
             }
         });
     }
