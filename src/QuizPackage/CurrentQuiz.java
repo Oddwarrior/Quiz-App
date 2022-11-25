@@ -97,7 +97,7 @@ public class CurrentQuiz extends javax.swing.JFrame {
         startButton.setText("clicked");
         
        Question question = new Question();
-      
+        question.nextQuestion();
         this.setContentPane(question);
 
     }//GEN-LAST:event_startButtonActionPerformed
