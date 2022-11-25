@@ -46,7 +46,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
             rs=stmt.executeQuery(query);
      
             if(rs.next()){
-             String question = rs.getString("question");
+             String question = "<html><p>"+(rs.getString("question"))+"</html></p>";
              String op1 = rs.getString("op1");
              String op2 = rs.getString("op2");
              String op3 = rs.getString("op3");
@@ -75,7 +75,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
     public void loadQuestionOnPanel(int i){
 
         if(i== allQuestions.length-1) nextButton.setText("Submit");
-        questionNoLabel.setText(String.valueOf(i+1));
+        questionNoLabel.setText("Question No. "+String.valueOf(i+1));
         questionLabel.setText(allQuestions[i].questionLabel.getText());
         option1.setText(allQuestions[i].option1.getText());
         option2.setText(allQuestions[i].option2.getText());
@@ -111,8 +111,10 @@ public class Question extends javax.swing.JPanel implements ActionListener{
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(481, 300));
 
-        questionLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        questionLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         questionLabel.setText("What is your Name ?");
+        questionLabel.setNextFocusableComponent(nextButton);
+        questionLabel.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
         nextButton.setBackground(new java.awt.Color(0, 204, 204));
         nextButton.setText("Next");
@@ -181,51 +183,61 @@ public class Question extends javax.swing.JPanel implements ActionListener{
             }
         });
 
+        answerMessage.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        answerMessage.setText("1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(nextButton)
-                        .addGap(39, 39, 39))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(questionNoLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(questionLabel))
-                            .addComponent(answerMessage)
-                            .addComponent(option1)
-                            .addComponent(option2)
-                            .addComponent(option3)
-                            .addComponent(option4))
-                        .addGap(0, 181, Short.MAX_VALUE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(option1)
+                                    .addComponent(option2)
+                                    .addComponent(option3)
+                                    .addComponent(option4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(nextButton)
+                                .addGap(39, 39, 39))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(answerMessage)
+                                .addContainerGap(434, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(questionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(questionNoLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addComponent(answerMessage)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(questionLabel)
-                    .addComponent(questionNoLabel))
-                .addGap(29, 29, 29)
-                .addComponent(option1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(questionNoLabel)
+                .addGap(15, 15, 15)
+                .addComponent(questionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(option2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(option3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(option4)
-                .addGap(39, 39, 39)
-                .addComponent(nextButton)
-                .addGap(36, 36, 36))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nextButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(option1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(option2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(option3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(option4)))
+                .addGap(64, 64, 64))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -331,7 +343,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
     private javax.swing.JRadioButton option2;
     private javax.swing.JRadioButton option3;
     private javax.swing.JRadioButton option4;
-    public javax.swing.JLabel questionLabel;
+    private javax.swing.JLabel questionLabel;
     private javax.swing.JLabel questionNoLabel;
     // End of variables declaration//GEN-END:variables
     public boolean done = false;
