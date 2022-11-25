@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.*;
+import java.sql.*;
 
 
 /**
@@ -19,58 +20,73 @@ public class Question extends javax.swing.JPanel implements ActionListener{
     
     private String currentAns;
     private String correctAns;
-    private static Question[] allQuestions = getQuestionsFromdataBase();
-    private static int QuestionNo = 0;
-    private static int score = 0;
+    public  Question[] allQuestions = null ;
+    private  int QuestionNo = 0;
+    private  int score = 0;
 
     public Question() {
         initComponents();
          
     }
     
-  
-    public static  Question[] getQuestionsFromdataBase(){
-        Question[] questions = new Question[2];
-        
-        Question question1 = new Question();
-        question1.questionLabel.setText("Question 1");
-        question1.option1.setText("op 1 1");
-        question1.option2.setText("op 1 2");
-        question1.option3.setText("op 1 3");
-        question1.option4.setText("op 1 4");
-        question1.correctAns = "op 1 1";
-        questions[0] = question1;
-        
-        Question question2 = new Question();
-        question2.questionLabel.setText("Question 2");
-        question2.option1.setText("op 2 1");
-        question2.option2.setText("op 2 2");
-        question2.option3.setText("op 2 3");
-        question2.option4.setText("op 2 4");
-        question2.correctAns= "op 2 4";
-       
-        questions[1] = question2;
-        
-        return questions;
+    //reading and loading all questions from data base
+    public  Question[] createQuestionFromResultSet(String quizName, int numberOfQuestions){
+        ResultSet rs = null;
+        Statement stmt;
+         Question[] questions = new Question[numberOfQuestions];
+         try{  
+            Class.forName("com.mysql.jdbc.Driver");  
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useSSL=false","root","2000");  
+            //here mydb is database name, root is username and 2000 is password  
+            
+            stmt=con.createStatement(); 
+            
+            for(int id = 1; id<=numberOfQuestions; id++){
+            String query = "SELECT * FROM "+quizName+" WHERE id= "+id;
+            rs=stmt.executeQuery(query);
+     
+            if(rs.next()){
+             String question = rs.getString("question");
+             String op1 = rs.getString("op1");
+             String op2 = rs.getString("op2");
+             String op3 = rs.getString("op3");
+             String op4 = rs.getString("op4");
+             String correct = rs.getString("correct");
+            
+            Question q = new Question();
+            q.questionLabel.setText(question);
+            q.option1.setText(op1);
+            q.option2.setText(op2);
+            q.option3.setText(op3);
+            q.option4.setText(op4);
+            q.correctAns = correct;
+            questions[id-1] = q;
+            }
+            
+        }
+            con.close();
+    }
+    catch(Exception e){ System.out.println(e.getMessage());}
+         
+       return questions;
     }
     
-    public void loadQuestion(int i){
-        
-       
-        if(i== allQuestions.length-1) nextbutton.setText("Submit");
+    //display Question
+    public void loadQuestionOnPanel(int i){
+
+        if(i== allQuestions.length-1) nextButton.setText("Submit");
         questionNoLabel.setText(String.valueOf(i+1));
         questionLabel.setText(allQuestions[i].questionLabel.getText());
         option1.setText(allQuestions[i].option1.getText());
         option2.setText(allQuestions[i].option2.getText());
         option3.setText(allQuestions[i].option3.getText());
         option4.setText(allQuestions[i].option4.getText());
-        nextbutton.setText("Skip");
-        
-        
+        nextButton.setText("Skip");
+         
     }
 
     
-
+//load components
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -79,7 +95,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
         jLabel2 = new javax.swing.JLabel();
         buttonGroup1 = new javax.swing.ButtonGroup();
         questionLabel = new javax.swing.JLabel();
-        nextbutton = new javax.swing.JButton();
+        nextButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         questionNoLabel = new javax.swing.JLabel();
         option1 = new javax.swing.JRadioButton();
@@ -98,14 +114,14 @@ public class Question extends javax.swing.JPanel implements ActionListener{
         questionLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         questionLabel.setText("What is your Name ?");
 
-        nextbutton.setBackground(new java.awt.Color(0, 204, 204));
-        nextbutton.setText("Next");
-        nextbutton.setBorderPainted(false);
-        nextbutton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        nextbutton.setFocusPainted(false);
-        nextbutton.addActionListener(new java.awt.event.ActionListener() {
+        nextButton.setBackground(new java.awt.Color(0, 204, 204));
+        nextButton.setText("Next");
+        nextButton.setBorderPainted(false);
+        nextButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        nextButton.setFocusPainted(false);
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nextbuttonActionPerformed(evt);
+                nextButtonActionPerformed(evt);
             }
         });
 
@@ -174,7 +190,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(nextbutton)
+                        .addComponent(nextButton)
                         .addGap(39, 39, 39))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(32, 32, 32)
@@ -208,17 +224,16 @@ public class Question extends javax.swing.JPanel implements ActionListener{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(option4)
                 .addGap(39, 39, 39)
-                .addComponent(nextbutton)
+                .addComponent(nextButton)
                 .addGap(36, 36, 36))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nextbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextbuttonActionPerformed
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
             this.done = true;
-            nextQuestion();
-            
-    }//GEN-LAST:event_nextbuttonActionPerformed
+            nextQuestion();  
+    }//GEN-LAST:event_nextButtonActionPerformed
 
     private void option1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_option1ActionPerformed
         checkAnswer();        
@@ -233,9 +248,11 @@ public class Question extends javax.swing.JPanel implements ActionListener{
     }//GEN-LAST:event_option3ActionPerformed
 
     private void option4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_option4ActionPerformed
-            checkAnswer();       
+        checkAnswer();       
     }//GEN-LAST:event_option4ActionPerformed
-   private void checkAnswer(){
+    
+    //verify answer
+    private void checkAnswer(){
        Enumeration<AbstractButton> optionsEnumeration = buttonGroup1.getElements();
  
         AbstractButton selectedOption = null; 
@@ -245,8 +262,8 @@ public class Question extends javax.swing.JPanel implements ActionListener{
             if(option4.isSelected()) selectedOption = option4;
             
             int q = QuestionNo-1;
-            if(q== allQuestions.length-1) nextbutton.setText("Submit");
-            else nextbutton.setText("Next");
+            if(q== allQuestions.length-1) nextButton.setText("Submit");
+            else nextButton.setText("Next");
             while(optionsEnumeration.hasMoreElements()){
                     AbstractButton btn = optionsEnumeration.nextElement();
                     if(btn!=selectedOption) btn.setEnabled(false);
@@ -264,26 +281,26 @@ public class Question extends javax.swing.JPanel implements ActionListener{
                 answerMessage.setText("Opps! wrong Answer !");
                 answerMessage.setForeground(Color.red);
             }
-   }  
+    }  
+    //Move to next Question
     public void nextQuestion(){
         if(QuestionNo>= allQuestions.length){
                 questionLabel.setText("Score :"+ score +"/"+allQuestions.length);
                 
                 questionNoLabel.setVisible(false);
                 answerMessage.setVisible(false);
-                nextbutton.setVisible(false);
+                nextButton.setVisible(false);
                 option1.setVisible(false);
                 option2.setVisible(false);
                 option3.setVisible(false);
                 option4.setVisible(false);
-
             }  
         else{
             enableOptions();
-            loadQuestion(QuestionNo++);
+            loadQuestionOnPanel(QuestionNo++);
         }
     }
-    
+    // enable all options for next question
     private void enableOptions(){
         Enumeration<AbstractButton> optionsEnumeration = buttonGroup1.getElements();
         while(optionsEnumeration.hasMoreElements()){
@@ -296,23 +313,20 @@ public class Question extends javax.swing.JPanel implements ActionListener{
             answerMessage.setText("");
     }
     }
+    
+    //not used till now
     @Override
      public void actionPerformed(ActionEvent ae) {
          
-               
-
      }
      
-   
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel answerMessage;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JButton nextbutton;
+    public javax.swing.JButton nextButton;
     private javax.swing.JRadioButton option1;
     private javax.swing.JRadioButton option2;
     private javax.swing.JRadioButton option3;

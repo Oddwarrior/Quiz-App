@@ -140,6 +140,7 @@ public class Quiz extends javax.swing.JFrame {
         // TODO add your handling code here:
         CurrentQuiz quiz = new CurrentQuiz();   
         quiz.show();
+        dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
 
     /**

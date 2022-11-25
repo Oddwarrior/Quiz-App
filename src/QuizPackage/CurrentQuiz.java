@@ -96,10 +96,11 @@ public class CurrentQuiz extends javax.swing.JFrame {
         // TODO add your handling code here:
         startButton.setText("clicked");
         
-       Question question = new Question();
+        Question question = new Question();
+        question.allQuestions = question.createQuestionFromResultSet("quiz1", 2);
         question.nextQuestion();
         this.setContentPane(question);
-
+        
     }//GEN-LAST:event_startButtonActionPerformed
 
   
