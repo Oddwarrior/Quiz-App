@@ -18,8 +18,9 @@ import java.sql.*;
  */
 public class Question extends javax.swing.JPanel implements ActionListener{
     
+    String nickName;
     private String currentAns;
-    private String correctAns;
+    public String correctAns;
     public  Question[] allQuestions = null ;
     private  int QuestionNo = 0;
     private  int score = 0;
@@ -30,12 +31,14 @@ public class Question extends javax.swing.JPanel implements ActionListener{
     }
     
     //reading and loading all questions from data base
-    public  Question[] createQuestionFromResultSet(String quizName, int numberOfQuestions){
+    //this method is currrently not in use. 
+    public  Question[] createQuestionsFromDatabase(String quizName, int numberOfQuestions){
         ResultSet rs = null;
         Statement stmt;
          Question[] questions = new Question[numberOfQuestions];
          try{  
             Class.forName("com.mysql.jdbc.Driver");  
+//            Connection con=DriverManager.getConnection("jdbc:mysql://www.sql6.freemysqlhosting.net:3306/sql6580891?useSSL=false&allowPublicKeyRetrieval=true","sql6580891","VJKjeUIqSq"); 
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useSSL=false","root","2000");  
             //here mydb is database name, root is username and 2000 is password  
             
@@ -66,7 +69,10 @@ public class Question extends javax.swing.JPanel implements ActionListener{
         }
             con.close();
     }
-    catch(Exception e){ System.out.println(e.getMessage());}
+    catch(Exception e){ 
+        System.out.println(e.getMessage());
+        JOptionPane.showMessageDialog(this, "Something went wrong");
+    }
          
        return questions;
     }
@@ -190,6 +196,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("X");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -317,15 +324,13 @@ public class Question extends javax.swing.JPanel implements ActionListener{
     //Move to next Question
     public void nextQuestion(){
         if(QuestionNo>= allQuestions.length){
-                questionLabel.setText("Score :"+ score +"/"+allQuestions.length);
                 
-                questionNoLabel.setVisible(false);
-                answerMessage.setVisible(false);
-                nextButton.setVisible(false);
-                option1.setVisible(false);
-                option2.setVisible(false);
-                option3.setVisible(false);
-                option4.setVisible(false);
+                Result result = new Result();
+                result.show();
+                result.showResult(score, allQuestions.length, nickName);
+                
+                    this.setVisible(false);
+  //           
             }  
         else{
             enableOptions();
@@ -360,11 +365,11 @@ public class Question extends javax.swing.JPanel implements ActionListener{
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JButton nextButton;
-    private javax.swing.JRadioButton option1;
-    private javax.swing.JRadioButton option2;
-    private javax.swing.JRadioButton option3;
-    private javax.swing.JRadioButton option4;
-    private javax.swing.JLabel questionLabel;
+    public javax.swing.JRadioButton option1;
+    public javax.swing.JRadioButton option2;
+    public javax.swing.JRadioButton option3;
+    public javax.swing.JRadioButton option4;
+    public javax.swing.JLabel questionLabel;
     private javax.swing.JLabel questionNoLabel;
     // End of variables declaration//GEN-END:variables
     public boolean done = false;
