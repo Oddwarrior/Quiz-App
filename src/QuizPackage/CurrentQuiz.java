@@ -16,6 +16,7 @@ public class CurrentQuiz extends javax.swing.JFrame {
     public CurrentQuiz() {
         initComponents();
         
+        
     }
  
 
@@ -25,7 +26,7 @@ public class CurrentQuiz extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         startButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        welcomeTxt = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         nameText = new javax.swing.JTextField();
@@ -48,8 +49,8 @@ public class CurrentQuiz extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Welcome to Quiz 1!");
+        welcomeTxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        welcomeTxt.setText("Welcome to DSA Quiz 1!");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuizImages/icons8_checklist_100px.png"))); // NOI18N
 
@@ -63,6 +64,7 @@ public class CurrentQuiz extends javax.swing.JFrame {
             }
         });
 
+        nameText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nameText.setBorder(null);
         nameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,56 +78,54 @@ public class CurrentQuiz extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(204, 204, 204)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(37, 37, 37))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(startButton)
-                        .addGap(48, 48, 48))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(243, 243, 243)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(251, 251, 251)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(nameText)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(8, 8, 8))
-                            .addComponent(jSeparator1))
-                        .addGap(34, 34, 34)))
-                .addContainerGap(229, Short.MAX_VALUE))
+                            .addComponent(jLabel4)
+                            .addComponent(jSeparator1)
+                            .addComponent(startButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(201, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(welcomeTxt)
+                        .addGap(191, 191, 191))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(welcomeTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addGap(16, 16, 16)
                 .addComponent(nameText, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(startButton)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,14 +138,24 @@ public class CurrentQuiz extends javax.swing.JFrame {
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
         // TODO add your handling code here:
-        startButton.setText("clicked");
+        startButton.setText("started!");
         
         Question question = new Question();
 //      question.allQuestions = question.createQuestionsFromDatabase(quizName, 4); //to be used when database is used
-        if(quizName.equals("java")){
-            question.allQuestions = Data.getQuestionData();
-        }
-        else JOptionPane.showMessageDialog(this, "quiz not found !");
+         switch (quizName) {
+             case "java":
+                 question.allQuestions = Data.shuffleQuestions(Data.getJavaData());
+                 break;
+             case "DSA":
+                 question.allQuestions = Data.shuffleQuestions(Data.getDsaData());
+                 break;
+             case "javascript":
+                 question.allQuestions = Data.shuffleQuestions(Data.getJsData());
+                 break;
+             default:
+                 JOptionPane.showMessageDialog(this, "quiz not found !");
+                 break;
+         }
         question.nickName = nameText.getText();
 
         question.nextQuestion();
@@ -160,7 +170,10 @@ public class CurrentQuiz extends javax.swing.JFrame {
     private void nameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameTextActionPerformed
-
+    
+    public void displayQuizName(){
+        welcomeTxt.setText("Welcome to "+quizName+" quiz !");
+    }
   
     public static void main(String args[]) {
        
@@ -173,7 +186,6 @@ public class CurrentQuiz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -181,5 +193,6 @@ public class CurrentQuiz extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField nameText;
     private javax.swing.JButton startButton;
+    private javax.swing.JLabel welcomeTxt;
     // End of variables declaration//GEN-END:variables
 }
