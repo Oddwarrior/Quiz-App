@@ -110,6 +110,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
         option4 = new javax.swing.JRadioButton();
         answerMessage = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        correctAnsMessage = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -191,6 +192,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
             }
         });
 
+        answerMessage.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         answerMessage.setText("1");
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -202,6 +204,9 @@ public class Question extends javax.swing.JPanel implements ActionListener{
                 jLabel3MouseClicked(evt);
             }
         });
+
+        correctAnsMessage.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        correctAnsMessage.setForeground(new java.awt.Color(0, 102, 102));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -219,16 +224,18 @@ public class Question extends javax.swing.JPanel implements ActionListener{
                                     .addComponent(option2)
                                     .addComponent(option3)
                                     .addComponent(option4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
                                 .addComponent(nextButton)
                                 .addGap(39, 39, 39))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(answerMessage)
-                                .addContainerGap(435, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(questionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap())))
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(correctAnsMessage)
+                                    .addComponent(answerMessage))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(177, 177, 177)
                         .addComponent(questionNoLabel)
@@ -245,7 +252,9 @@ public class Question extends javax.swing.JPanel implements ActionListener{
                 .addComponent(jLabel3)
                 .addGap(8, 8, 8)
                 .addComponent(answerMessage)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(correctAnsMessage)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(questionNoLabel)
                 .addGap(15, 15, 15)
                 .addComponent(questionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -318,6 +327,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
             else {
                 selectedOption.setForeground(Color.red);
                 answerMessage.setText("Opps! wrong Answer !");
+                correctAnsMessage.setText("Correct answer is "+allQuestions[q].correctAns);
                 answerMessage.setForeground(Color.red);
             }
     }  
@@ -348,6 +358,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
             option4.setForeground(Color.black);
             buttonGroup1.clearSelection();
             answerMessage.setText("");
+            correctAnsMessage.setText("");
     }
     }
     
@@ -360,6 +371,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel answerMessage;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel correctAnsMessage;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
