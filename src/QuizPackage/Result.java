@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package QuizPackage;
 
 import java.awt.Color;
 
-/**
- *
- * @author VISHAKHA
- */
+
 public class Result extends javax.swing.JFrame {
 
     
@@ -28,7 +21,7 @@ public class Result extends javax.swing.JFrame {
         }
         else {
             resultMessage.setForeground(Color.red);
-            resultMessage.setText(name+", Better luck next time ..");
+            resultMessage.setText("<html>"+name+", Better luck next time ..</html>");
         }
         score.setText(correct+"/"+total);
 }
@@ -163,7 +156,7 @@ public class Result extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Result.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
+ 
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

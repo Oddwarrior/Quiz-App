@@ -89,9 +89,9 @@ public class Data {
             q7.questionLabel.setText("<html>Which of the following statement is not true about the doubly linked list?</html>");
             q7.option1.setText("We can traverse in both the directions.");
             q7.option2.setText("It requires extra space");
-            q7.option3.setText("<html>Implementation of doubly linked list is easier than the singly linked list<html>");
+            q7.option3.setText("<html>Implementation of doubly linked list is easier than the singly linked list</html>");
             q7.option4.setText("It stores the addresses of the next and the previous node");
-            q7.correctAns = "<html>Implementation of doubly linked list is easier than the singly linked list</html>";
+            q7.correctAns = "<html>Implementation of doubly linked list is easier than the singly linked list </html>";
             
             Question q8 = new Question();
             q8.questionLabel.setText("<html>What is the maximum number of children that a node can have in a binary tree?</html>");
@@ -117,14 +117,97 @@ public class Data {
             q10.option4.setText("Elements of an array cannot be sorted");
             q10.correctAns = "<html>Easier to access the elements in an array</html>";
             
-            Question allQuestions[]= {q1, q2, q3, q4, q5 ,q6 ,q7, q8, q9, q10};
+            Question allQuestions[]= {q1, q2, q3, q4, q5 ,q6 , q8, q9, q10};
             
         return allQuestions;
     }
     
     //questions for javascript
     public static Question[] getJsData(){
-        return null;
+         Question q1 = new Question();
+            q1.questionLabel.setText("Javascript is an _______ language?");
+            q1.option1.setText("Object-Oriented");
+            q1.option2.setText("Object-Based");
+            q1.option3.setText("Procedural");
+            q1.option4.setText("None of the above");
+            q1.correctAns = "Object-Oriented";
+
+            Question q2 = new Question();
+            q2.questionLabel.setText("<html>Which of the following keywords is used to define a variable in Javascript?</html>");
+            q2.option1.setText("var");
+            q2.option2.setText("let");
+            q2.option3.setText("Both A and B");
+            q2.option4.setText("None of the above");
+            q2.correctAns = "Both A and B";
+            
+            Question q3 = new Question();
+            q3.questionLabel.setText("<html>Which of the following methods is used to access HTML elements using Javascript?</html>");
+            q3.option1.setText("getElementbyId()");
+            q3.option2.setText("getElementsByClassName()");
+            q3.option3.setText("Both A and B");
+            q3.option4.setText("None of the above");
+            q3.correctAns = "Both A and B";
+
+            Question q4 = new Question();
+            q4.questionLabel.setText("<html>What are the closures ?</html>");
+            q4.option1.setText("<html>Both Function objects and Scope where function's variables are resolved</html>");
+            q4.option2.setText("Scope where function's variables are resolved");
+            q4.option3.setText("Function objects");
+            q4.option4.setText("Function return value");
+            q4.correctAns = "Function objects";
+
+            Question q5 = new Question();
+            q5.questionLabel.setText("<html>Which of the following methods can be used to display data in some form using Javascript?</html>");
+            q5.option1.setText("document.write()");
+            q5.option2.setText("console.log()");
+            q5.option3.setText("window.alert");
+            q5.option4.setText("All of the above");
+            q5.correctAns = "All of the above";
+
+            Question q6 = new Question();
+            q6.questionLabel.setText("<html>Which one of the following also known as Conditional Expression:</html>");
+            q6.option1.setText("Alternative to if-else");
+            q6.option2.setText("Switch statement");
+            q6.option3.setText("If-then-else statement");
+            q6.option4.setText("immediate if");
+            q6.correctAns = "immediate if";
+
+            Question q7 = new Question();
+            q7.questionLabel.setText("<html>Which one of the following is the correct way for calling the JavaScript code?</html>");
+            q7.option1.setText("Preprocessor");
+            q7.option2.setText("Triggering Event");
+            q7.option3.setText("RMI");
+            q7.option4.setText("Function/Method");
+            q7.correctAns = "Function/Method";
+
+            Question q8 = new Question();
+            q8.questionLabel.setText("<html>Which of the following option is used as hexadecimal literal beginning?</html>");
+            q8.option1.setText("00");
+            q8.option2.setText("0x");
+            q8.option3.setText("0X");
+            q8.option4.setText("Both 0x and 0X");
+            q8.correctAns = "Both 0x and 0X";
+
+		Question q9 = new Question();
+            q9.questionLabel.setText("<html>Which of the following statement is not correct in the case of JavaScript?</html>");
+            q9.option1.setText("JavaScript is a light-weighted and interpreted language.");
+            q9.option2.setText("JavaScript is a high-level programming language.");
+            q9.option3.setText("JavaScript is a case-sensitive language.");
+            q9.option4.setText("<html>JavaScript provides reasonable control to the users over the web browsers.</html>");
+            q9.correctAns = "JavaScript is a high-level programming language.";
+
+		Question q10 = new Question();
+            q10.questionLabel.setText("<html>What is required in order to implement the Lexical Scoping?</html>");
+            q10.option1.setText("To reference the current scope chain");
+            q10.option2.setText("Dereference the current scope chain");
+            q10.option3.setText("Get the object");
+            q10.option4.setText("Return the value");
+            q10.correctAns = "To reference the current scope chain";
+
+            Question allQuestions[]= {q1, q2, q3, q4, q5, q6, q7, q8, q9, q10};
+           
+            return allQuestions;
+
     }
     
     public static Question[] shuffleQuestions(Question[] array){

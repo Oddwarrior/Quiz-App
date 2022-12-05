@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package QuizPackage;
 
 import java.awt.Color;
@@ -12,10 +8,6 @@ import javax.swing.*;
 import java.sql.*;
 
 
-/**
- *
- * @author VISHAKHA
- */
 public class Question extends javax.swing.JPanel implements ActionListener{
     
     String nickName;
@@ -113,7 +105,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
         option3 = new javax.swing.JRadioButton();
         option4 = new javax.swing.JRadioButton();
         answerMessage = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        closeButton = new javax.swing.JLabel();
         correctAnsMessage = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
@@ -251,18 +243,17 @@ public class Question extends javax.swing.JPanel implements ActionListener{
         answerMessage.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         answerMessage.setText("1");
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel3.setText("X");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        closeButton.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        closeButton.setForeground(new java.awt.Color(204, 204, 204));
+        closeButton.setText("X");
+        closeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                closeButtonMouseClicked(evt);
             }
         });
 
-        correctAnsMessage.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        correctAnsMessage.setForeground(new java.awt.Color(175, 219, 219));
+        correctAnsMessage.setForeground(new java.awt.Color(86, 157, 157));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -298,14 +289,14 @@ public class Question extends javax.swing.JPanel implements ActionListener{
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addComponent(closeButton)
                 .addGap(14, 14, 14)
                 .addComponent(answerMessage)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -351,9 +342,9 @@ public class Question extends javax.swing.JPanel implements ActionListener{
         checkAnswer();       
     }//GEN-LAST:event_option4ActionPerformed
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
         System.exit(0);
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_closeButtonMouseClicked
     
     //verify answer
     private void checkAnswer(){
@@ -375,9 +366,9 @@ public class Question extends javax.swing.JPanel implements ActionListener{
             
             currentAns = selectedOption.getText();
             if(currentAns.equals(allQuestions[q].correctAns)){
-                selectedOption.setForeground(Color.decode("#22942f"));
+                selectedOption.setForeground(Color.decode("#38b814"));
                 answerMessage.setText("✔️ Correct Answer !");
-                answerMessage.setForeground(Color.decode("#22942f"));
+                answerMessage.setForeground(Color.decode("#38b814"));
                 score++;  
             }
             else {
@@ -427,10 +418,10 @@ public class Question extends javax.swing.JPanel implements ActionListener{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel answerMessage;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel closeButton;
     private javax.swing.JLabel correctAnsMessage;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
