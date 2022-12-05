@@ -37,6 +37,7 @@ public class Result extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         closeButton = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        replayButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -83,6 +84,19 @@ public class Result extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuizImages/award.jpg"))); // NOI18N
 
+        replayButton.setBackground(new java.awt.Color(0, 204, 204));
+        replayButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        replayButton.setForeground(new java.awt.Color(255, 255, 255));
+        replayButton.setText("Play Again ");
+        replayButton.setBorderPainted(false);
+        replayButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        replayButton.setFocusable(false);
+        replayButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                replayButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -95,7 +109,8 @@ public class Result extends javax.swing.JFrame {
                     .addComponent(resultMessage)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(score)))
+                        .addComponent(score))
+                    .addComponent(replayButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(50, 50, 50))
@@ -115,7 +130,9 @@ public class Result extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(score)
-                        .addGap(111, 111, 111))))
+                        .addGap(18, 18, 18)
+                        .addComponent(replayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(63, 63, 63))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -136,6 +153,11 @@ public class Result extends javax.swing.JFrame {
     private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
         System.exit(0);
     }//GEN-LAST:event_closeButtonMouseClicked
+
+    private void replayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_replayButtonActionPerformed
+        dispose();
+        new Quiz().setVisible(true);
+    }//GEN-LAST:event_replayButtonActionPerformed
 
     
     public static void main(String args[]) {
@@ -172,6 +194,7 @@ public class Result extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton replayButton;
     private javax.swing.JLabel resultMessage;
     private javax.swing.JLabel score;
     // End of variables declaration//GEN-END:variables
