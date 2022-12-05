@@ -1,14 +1,12 @@
 package QuizPackage;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.*;
 import java.sql.*;
 
 
-public class Question extends javax.swing.JPanel implements ActionListener{
+public class Question extends javax.swing.JPanel {
     
     String nickName;
     private String currentAns;
@@ -83,7 +81,6 @@ public class Question extends javax.swing.JPanel implements ActionListener{
          
     }
 
-    
 //load components
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -359,6 +356,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
             int q = QuestionNo-1;
             if(q== allQuestions.length-1) nextButton.setText("Submit");
             else nextButton.setText("Next");
+            
             while(optionsEnumeration.hasMoreElements()){
                     AbstractButton btn = optionsEnumeration.nextElement();
                     if(btn!=selectedOption) btn.setEnabled(false);
@@ -367,7 +365,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
             currentAns = selectedOption.getText();
             if(currentAns.equals(allQuestions[q].correctAns)){
                 selectedOption.setForeground(Color.decode("#38b814"));
-                answerMessage.setText("✔️ Correct Answer !");
+                answerMessage.setText("Correct Answer !");
                 answerMessage.setForeground(Color.decode("#38b814"));
                 score++;  
             }
@@ -409,11 +407,7 @@ public class Question extends javax.swing.JPanel implements ActionListener{
     }
     }
     
-    //not used till now
-    @Override
-     public void actionPerformed(ActionEvent ae) {
-         
-     }
+
      
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel answerMessage;

@@ -31,7 +31,65 @@ public class Data {
             q3.option4.setText("none of the above");
             q3.correctAns = "a value that is greater than zero";
             
-            Question allQuestions[]= {q1, q2, q3};
+            Question q4 = new Question();
+            q4.questionLabel.setText("<html>Which loop always executes its body at least once, even though the condition is not true:</html>");
+            q4.option1.setText("for");
+            q4.option2.setText("do-while");
+            q4.option3.setText("while");
+            q4.option4.setText("continue");
+            q4.correctAns = "do-while";
+
+            Question q5 = new Question();
+            q5.questionLabel.setText("<html>Which of the following allows the creation of hierarchical classifications?</html>");
+            q5.option1.setText("Interface");
+            q5.option2.setText("Inheritance");
+            q5.option3.setText("Package");
+            q5.option4.setText("Polymorphism");
+            q5.correctAns = "Inheritance";
+
+            Question q6 = new Question();
+            q6.questionLabel.setText("<html>Which of the following allows the creation of hierarchical classifications?</html>");
+            q6.option1.setText("Multilevel polymorphism");
+            q6.option2.setText("Execution time polymorphism");
+            q6.option3.setText("Compile time polymorphism");
+            q6.option4.setText("Multiple polymorphism");
+            q6.correctAns = "Compile time polymorphism";
+
+            Question q7 = new Question();
+            q7.questionLabel.setText("<html> When does method overloading is determined?</html>");
+            q7.option1.setText("At coding time");
+            q7.option2.setText("At execution time");
+            q7.option3.setText("At compile time");
+            q7.option4.setText("At run time");
+            q7.correctAns = "At compile time";
+
+            Question q8 = new Question();
+            q8.questionLabel.setText("<html>What is it called where child object gets killed if parent object is killed?</html>");
+            q8.option1.setText("Aggregation");
+            q8.option2.setText("Composition");
+            q8.option3.setText("Association");
+            q8.option4.setText("Encapsulation");
+            q8.correctAns = "Composition";
+
+            Question q9 = new Question();
+            q9.questionLabel.setText("<html>Which of these methods deletes all the elements from invoking collection?</html>");
+            q9.option1.setText("reset()");
+            q9.option2.setText("clear()");
+            q9.option3.setText("refresh()");
+            q9.option4.setText("delete()");
+            q9.correctAns = "clear()";
+
+            Question q10 = new Question();
+            q10.questionLabel.setText("<html>Which of the following is not a Java features?</html>");
+            q10.option1.setText("Dynamic");
+            q10.option2.setText("Use of pointers");
+            q10.option3.setText("Architecture Neutral");
+            q10.option4.setText("Object-oriented");
+            q10.correctAns = "Use of pointers";
+
+            
+            Question allQuestions[]= {q1, q2, q3, q4 , q5, q6, q7,q8,q9,q10};
+            
            
            return allQuestions;
     }
