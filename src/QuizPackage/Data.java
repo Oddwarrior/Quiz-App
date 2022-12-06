@@ -132,7 +132,7 @@ public class Data {
             q5.option1.setText("Linear Queue");
             q5.option2.setText("Circular Queue");
             q5.option3.setText("Linear tree");
-            q5.option4.setText("Double ended Queue");
+            q5.option4.setText("Single ended Queue");
             q5.correctAns = "Single ended Queue";
             
             Question q6 = new Question();
@@ -173,7 +173,7 @@ public class Data {
             q10.option2.setText("Easier to access the elements in an array");
             q10.option3.setText("Index of the first element starts from 1.");
             q10.option4.setText("Elements of an array cannot be sorted");
-            q10.correctAns = "<html>Easier to access the elements in an array</html>";
+            q10.correctAns = "Easier to access the elements in an array";
             
             Question allQuestions[]= {q1, q2, q3, q4, q5 ,q6 , q8, q9, q10};
             

@@ -68,7 +68,7 @@ public class CurrentQuiz extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Enter yout name");
+        jLabel4.setText("Enter your name");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
